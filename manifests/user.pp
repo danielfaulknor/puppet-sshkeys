@@ -47,7 +47,6 @@ define sshkeys::user (
       system           => $system,
       uid              => $uid,
       gid              => $gid,
-      managehome       => true,
     }
   } elsif ( !getparam(User[$user],'purge_ssh_keys') ) {
     notify{"No keys will be purged for user ${user} as purge_ssh_keys is disabled":}
