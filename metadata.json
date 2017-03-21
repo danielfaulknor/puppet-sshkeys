@@ -1,17 +1,17 @@
 {
-  "name": "sidorenko-sshkeys",
-  "version": "0.9.1",
-  "author": "sidorenko",
-  "summary": "Puppet module to manage ssh public keys",
-  "license": "Apache-2.0",
-  "source": "https://github.com/artem-sidorenko/puppet-sshkeys/",
-  "project_page": "https://github.com/artem-sidorenko/puppet-sshkeys/",
-  "issues_url": "https://github.com/artem-sidorenko/puppet-sshkeys/issues",
+  "name": "fraenki-sshkeys",
+  "version": "0.9.3",
+  "author": "Frank Wall",
+  "summary": "Puppet module to manage SSH public keys",
+  "license": "BSD-2-Clause",
+  "source": "https://github.com/fraenki/puppet-sshkeys/",
+  "project_page": "https://github.com/fraenki/puppet-sshkeys/",
+  "issues_url": "https://github.com/fraenki/puppet-sshkeys/issues",
   "tags": ["ssh","openssh","ubuntu","debian","gentoo","freebsd","security","server","fedora"],
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
-      "version_range": ">= 1.0.0"
+      "version_requirement": ">= 4.0.0 <5.0.0"
     }
   ],
   "operatingsystem_support": [
@@ -42,7 +42,8 @@
       "operatingsystem": "Scientific",
       "operatingsystemrelease": [
         "5",
-        "6"
+        "6",
+        "7"
       ]
     },
     {
@@ -55,7 +56,8 @@
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
         "6",
-        "7"
+        "7",
+        "8"
       ]
     },
     {
@@ -63,7 +65,8 @@
       "operatingsystemrelease": [
         "10.04",
         "12.04",
-        "14.04"
+        "14.04",
+        "16.04"
       ]
     },
     {
@@ -76,8 +79,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": "3.6"
+      "version_requirement": ">= 3.6.0 < 5.0.0"
     }
   ]
 }
-

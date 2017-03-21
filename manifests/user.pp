@@ -2,30 +2,28 @@
 # sshkeys puppet module
 # https://github.com/artem-sidorenko/puppet-sshkeys
 #
-# Author Artem Sidorenko artem@2realities.com
+# Copyright (C) 2016 Frank Wall github@moov.de
+# Copyright (C) 2014-2016 Artem Sidorenko artem@2realities.com
 #
-# Copyright 2014 Artem Sidorenko and contributors.
-# See the COPYRIGHT file at the top-level directory of this distribution
-# and at https://github.com/artem-sidorenko/puppet-sshkeys/blob/master/COPYRIGHT
+# See the COPYRIGHT file at the top-level directory of this distribution.
 #
 define sshkeys::user (
-    $ensure           = present,
-    $keys             = [],
-    $home             = undef,
-    $comment          = undef,
-    $groups           = undef,
-    $password_min_age = undef,
-    $password_max_age = undef,
-    $password         = undef,
-    $expiry           = undef,
-    $managehome       = undef,
-    $shell            = undef,
-    $system           = undef,
-    $uid              = undef,
-    $gid              = undef,
-    $fix_permissions  = true,
-  ) {
-
+  $ensure           = present,
+  $keys             = [],
+  $home             = undef,
+  $comment          = undef,
+  $groups           = undef,
+  $password_min_age = undef,
+  $password_max_age = undef,
+  $password         = undef,
+  $expiry           = undef,
+  $managehome       = undef,
+  $shell            = undef,
+  $system           = undef,
+  $uid              = undef,
+  $gid              = undef,
+  $fix_permissions  = true,
+) {
   $user = $title
 
   if ( ! defined(User[$user]) ) {
@@ -65,7 +63,7 @@ define sshkeys::user (
     if ( $fix_permissions == true and $fin_keys != {} ) {
       $home_param = getparam(User[$user],'home')
       $gid_param  = getparam(User[$user],'gid')
-      if ( !$gid_param ) {
+      if ( !$gid_param or $gid_param == '' ) {
         notify{"No permissions will be fixed for user ${user} as gid is not set":}
       } else {
         file { "fix permissions of ${home_param}/.ssh":
